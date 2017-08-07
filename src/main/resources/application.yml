@@ -1,0 +1,45 @@
+
+logging:
+  path: /Users/xcl/gitresp/showcase/website/ace-admin-jpa/target/
+
+
+security:
+  basic:
+    enabled: false
+
+
+spring:
+  resources:
+      staticLocations: classpath:/static/, classpath:/assets/   #ResourceProperties.java
+  mvc:  #WebMvcProperties
+      dateFormat: yyyy-MM-dd
+  thymeleaf:
+      cache: false
+      mode: HTML
+      prefix: classpath:/templates/
+  datasource:
+    url : jdbc:mysql://192.168.99.100:3306/admin_ace?useUnicode=true&characterEncoding=UTF-8&&useSSL=true
+    username : root
+    password : toor
+    driverClassName : com.mysql.jdbc.Driver
+  jpa:
+    database : MYSQL
+    show-sql : true
+    hibernate:
+      ddl-auto : update
+      naming-strategy : org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect : org.hibernate.dialect.MySQL5Dialect
+
+
+server:
+    port: 9000
+    sessionTimeout: 30
+    contextPath: /
+    tomcat:
+        accessLogEnabled: false
+        protocolHeader: x-forwarded-proto
+        remoteIpHeader: x-forwarded-for
+        basedir:
+        backgroundProcessorDelay: 30
